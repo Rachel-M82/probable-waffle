@@ -1,0 +1,32 @@
+# 숫자 가위바위보 게임
+import random # random 모듈을 임포트
+
+# 가위, 바위, 보를 숫자로 표현
+SCISSORS = 0
+ROCK = 1
+PAPER = 2
+
+# 컴퓨터가 랜덤하게 숫자를 선택
+computer = random.randint(0, 2)
+
+# 사용자에게 숫자를 입력받기
+user = int(input("가위(0), 바위(1), 보(2) 중 하나를 입력하세요: "))
+
+# 입력값이 유효한지 검사하기
+if user not in [0, 1, 2]:
+    print("잘못된 입력입니다.")
+else:
+    # 컴퓨터와 사용자의 선택을 출력하기
+    print(f"컴퓨터는 {computer}를 냈습니다.")
+    print(f"당신은 {user}를 냈습니다.")
+
+    # 승패를 판단하기
+    # (user - computer) % 3 의 값에 따라 결과가 달라짐
+    result = (user - computer) % 3
+
+    if result == 0:
+        print("비겼습니다.")
+    elif result == 1:
+        print("당신이 이겼습니다.")
+    else:
+        print("당신이 졌습니다.")
